@@ -1,2 +1,4 @@
 assets/*
+#ignoring files and folder
 system/* 
+assets/* 
