@@ -1,9 +1,3 @@
-<?php if($this->session->flashdata('pesan_error')):?>
-  <div class="alert alert-danger">      
-    <?php echo $this->session->flashdata('pesan_error')?>
-  </div>
-<?php else : ?>
-
 <div class="row"><div class="col-lg-12">
 	<button type="button" href="#" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#ModalAddMerk"><i class="fa fa-plus"></i>&nbsp;Tambah Data</button>
 </div></div>
@@ -76,5 +70,3 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
-
-<?php endif; ?>

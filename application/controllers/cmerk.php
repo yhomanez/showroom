@@ -5,7 +5,6 @@ class Cmerk extends MY_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model(array('m_jenis','m_merk'));
-		// $this->data['pesan'] = "";
 	}
 
 	public function index(){
@@ -15,7 +14,7 @@ class Cmerk extends MY_Controller {
 			$this->render('admin/jenis/create',$this->data);
 		}else{
 			$this->data['data_jenis'] = $q_jenis;
-			$this->data['data_merk'] = $this->m_merk->getAllmerk();
+			$this->data['data_merk'] = $this->m_merk->getAllMerk();
 			$this->render('admin/merk/index',$this->data);
 		}
 	}

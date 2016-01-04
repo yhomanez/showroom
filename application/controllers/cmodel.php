@@ -9,8 +9,9 @@ class Cmodel extends MY_Controller {
 
 	public function index(){
 		$q_merk = $this->m_merk->getAllMerk();		
-		if ($q_jenis->num_rows() < 1){			
-			$this->render('admin/merk/create',$this->data);
+		if ($q_merk->num_rows() < 1){			
+			// $this->render('admin/merk/create',$this->data);
+			redirect('cmerk/create');
 		}else{
 			$this->data['data_merk'] = $this->m_merk->getAllMerk();
 			$this->data['data_model'] = $this->m_model->getAllModel();
@@ -51,29 +52,31 @@ class Cmodel extends MY_Controller {
 			}
 		}
 
-		$this->form_validation->set_rules('idmerk','Id Merk','required');		
-		$this->form_validation->set_rules('namamodel','Nama model','required');		
-		if($this->form_validation->run() == false){
-			$pesan_error = "Pesan ajax";
-			echo json_encode($pesan_error);
-		}else{
-			$id_merk = $this->input->post('idmerk');
-			$nama_model = $this->input->post('namamodel');			
-			$data = array(
-				'merk_id'=>$id_merk,
-				'nama_model'=>$nama_model
-			);
-			$this->m_model->save($data);
-			redirect('cmodel');			
-		}
+		// $this->form_validation->set_rules('idmerk','Id Merk','required');		
+		// $this->form_validation->set_rules('namamodel','Nama model','required');		
+		// if($this->form_validation->run() == false){
+		// 	$pesan_error = "Pesan ajax";
+		// 	echo json_encode($pesan_error);
+		// }else{
+		// 	$id_merk = $this->input->post('idmerk');
+		// 	$nama_model = $this->input->post('namamodel');			
+		// 	$data = array(
+		// 		'merk_id'=>$id_merk,
+		// 		'nama_model'=>$nama_model
+		// 	);
+		// 	$this->m_model->save($data);
+		// 	redirect('cmodel');			
+		// }
 		
 	}
+
 	function edit(){
 		$id = $this->uri->segment(3);
 		$q_model = $this->m_model->getModelById($id);
 		$this->data['page_title'] = 'Edit Model Mobil';
 		$this->data['data_merk'] = $this->m_merk->getAllMerk();	
 		$this->data['data_model'] = $q_model;
+		$this->data['data_spesifikasi'] = $this->m_model->cekSpekModel($id);
 		$this->render('admin/model/edit',$this->data);
 	}
 	function update(){

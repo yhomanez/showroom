@@ -10,6 +10,14 @@
 			<form action="<?php echo site_url('cjenis/update'); ?>" method="POST">
 				<div class="box-body">
 					<div class="form-group">
+						<label>Select</label>
+						<select class="form-control" name="idjenis">
+						<?php foreach($data_jenis->result_array() as $datajenis):?>
+							<option value="<?php echo $datajenis['id_jenis'];?>"><?php echo $datajenis['nama_jenis'];?></option>
+						<?php endforeach; ?>
+						</select>
+	                </div>					
+					<div class="form-group">
 						<label for="namaJenis">Name</label>
 						<input type="text" name="namajenis" class="form-control" placeholder="masukan jenis" value="<?php echo $data['nama_jenis'];?>">
 						<input type="hidden" name="idjenis" class="form-control" value="<?php echo $data['id_jenis']; ?>">						

@@ -23,4 +23,9 @@ class M_model extends CI_Model
 		$this->db->where('id_model',$id);
 		$this->db->delete('model_mobil');
 	}
+
+	function cekSpekModel($id){
+		$query = $this->db->where('model_id',$id)->get('spesifikasi_mobil');
+		return $query;
+	}
 }

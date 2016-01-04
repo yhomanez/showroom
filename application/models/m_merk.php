@@ -5,7 +5,7 @@ class M_merk extends CI_Model
 	function __construct(){
 		parent::__construct();		
 	}
-	function getAllmerk(){
+	function getAllMerk(){
 		return $this->db->get('merk_mobil');
 	}
 	function getmerkById($id){

@@ -1,5 +1,7 @@
+
 <div class="row">
 	<div class="col-lg-6">
+		<div class="alert alert-danger"><p>Anda tidak bisa mengisi data Model jika data Merk kosong.</p></div>
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Create New</h3>
@@ -7,7 +9,7 @@
 			<form action="<?php echo site_url('cmerk/save'); ?>" method="POST">
 				<div class="box-body">
 					<div class="form-group">
-						<label>Select</label>
+						<label>Jenis</label>
 						<select class="form-control" name="idjenis">
 						<?php foreach($data_jenis->result_array() as $datajenis):?>
 							<option value="<?php echo $datajenis['id_jenis'];?>"><?php echo $datajenis['nama_jenis'];?></option>
